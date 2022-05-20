@@ -24,18 +24,9 @@ export const SIZES = {
 };
 
 export const COLORS = {
-  red: "#E20000",
-  purple: "#19235B",
-  white: "#fff",
-  offPurple: "#D9DFEB",
-  bg: "#E5E5E5",
-  DarkBlue: "#2D4379",
-  linearGrad_1: "#0D253C",
-  linearGrad_2: "#49B0E2",
-  blue: "#376AED",
-  lightBlue: "#03A9F1",
-  lightBrown: "#F18303",
-  ash: "#7A8194",
+  primary: "#600070",
+  secondary: "#D9C2DD",
+  tertiary: "#455A64",
 };
 
 export const FONTS = {
