@@ -27,6 +27,7 @@ export const COLORS = {
   primary: "#600070",
   secondary: "#D9C2DD",
   tertiary: "#455A64",
+  white: "#fff",
 };
 
 export const FONTS = {
@@ -57,7 +58,15 @@ export const FontWeights = {
   fw900: "900",
 };
 
-export const TextAlignments = {
+interface textAlignments {
+  text_auto: string;
+  text_left: string;
+  text_right: string;
+  text_center: string;
+  text_justify: string;
+}
+
+export const TextAlignments: textAlignments = {
   text_auto: "auto",
   text_left: "left",
   text_right: "right",
