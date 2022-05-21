@@ -16,7 +16,7 @@ function SplashScreen({ navigation }: any) {
   };
 
   useEffect(() => {
-    setInterval(switchImage, 2000);
+    setInterval(switchImage, 4000);
     setTimeout(() => {
       navigation.navigate("OnBoardong");
     }, 5000);
@@ -27,9 +27,8 @@ function SplashScreen({ navigation }: any) {
     <View style={styles.container}>
       <Image
         source={imgArray[currentImage]}
-        resizeMethod="scale"
-        resizeMode="center"
-        style={{}}
+        resizeMethod="auto"
+        resizeMode="contain"
       />
 
       <Headline
