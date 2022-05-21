@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Image, StyleSheet, Text } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { ronda_light, ronda_purple } from "../constants/intro";
 import { COLORS } from "../constants/theme";
 import { Headline, Caption } from "react-native-paper";
@@ -12,16 +12,15 @@ function SplashScreen({ navigation }: any) {
   const switchImage = () => {
     if (currentImage <= imgArray.length - 1) {
       setCurrentImage((prev) => prev + 1);
-      // setCurrentImage(currentImage + 1);
     }
   };
 
   useEffect(() => {
     setInterval(switchImage, 2000);
-
     setTimeout(() => {
       navigation.navigate("OnBoardong");
     }, 5000);
+    clearInterval();
   }, [switchImage]);
 
   return (
