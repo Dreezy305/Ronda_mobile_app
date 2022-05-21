@@ -1,8 +1,12 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 
-function onBoarding() {
-  return <View>onBoarding</View>;
+function OnBoardingScreen() {
+  return (
+    <View>
+      <Text style={{ margin: 100 }}>On</Text>
+    </View>
+  );
 }
 
-export default onBoarding;
+export default OnBoardingScreen;

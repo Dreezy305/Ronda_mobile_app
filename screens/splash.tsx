@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { View, Image, StyleSheet } from "react-native";
+import { View, Image, StyleSheet, Text } from "react-native";
 import { ronda_light, ronda_purple } from "../constants/intro";
-import { COLORS, TextAlignments } from "../constants/theme";
+import { COLORS } from "../constants/theme";
+import { Headline, Caption } from "react-native-paper";
 
-function splash({ navigation }: any) {
+function SplashScreen({ navigation }: any) {
   const [currentImage, setCurrentImage] = useState<number>(0);
 
-  const imgArray: any = [ronda_light, ronda_purple];
+  const imgArray: any = [ronda_purple, ronda_light];
 
   const switchImage = () => {
-    if (currentImage < imgArray.length) {
+    if (currentImage <= imgArray.length - 1) {
       setCurrentImage((prev) => prev + 1);
+      // setCurrentImage(currentImage + 1);
     }
   };
 
@@ -18,35 +20,52 @@ function splash({ navigation }: any) {
     setInterval(switchImage, 2000);
 
     setTimeout(() => {
-      navigation.navigate("");
+      navigation.navigate("OnBoardong");
     }, 5000);
-  }, []);
+  }, [switchImage]);
 
   return (
     <View style={styles.container}>
       <Image
         source={imgArray[currentImage]}
         resizeMethod="scale"
-        resizeMode="contain"
-        style={styles.imgStyle}
+        resizeMode="center"
+        style={{}}
       />
+
+      <Headline
+        style={{
+          fontFamily: "Inter_Bold",
+          color: COLORS.primary,
+          letterSpacing: 0.25,
+          fontSize: 36,
+          lineHeight: 45,
+        }}
+      >
+        Ronda
+      </Headline>
+      <Caption
+        style={{
+          fontFamily: "Inter_Regular",
+          color: COLORS.primary,
+          fontSize: 13,
+          lineHeight: 45,
+          letterSpacing: 0.25,
+        }}
+      >
+        Banking made easy for you...
+      </Caption>
     </View>
   );
 }
 
-export default splash;
+export default SplashScreen;
 
 const styles: any = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: COLORS.white,
     alignItems: "center",
     justifyContent: "center",
-  },
-
-  imgStyle: {
-    padding: 20,
-    width: 350,
-    height: 350,
   },
 });

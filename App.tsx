@@ -1,24 +1,37 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { FONTS } from "./constants/theme";
 import { useFonts } from "expo-font";
 import { Provider as PaperProvider } from "react-native-paper";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import SplashScreen from "./screens/splash";
+import OnBoardingScreen from "./screens/onBoarding";
+
+const Stack: any = createNativeStackNavigator();
 
 export default function App() {
+  const [loaded] = useFonts(FONTS);
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <PaperProvider>
-      <View style={styles.container}>
-        <Text>Ronda App</Text>
-        <StatusBar style="auto" />
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Splash"
+            component={SplashScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="OnBoardong"
+            component={OnBoardingScreen}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </PaperProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
