@@ -4,7 +4,7 @@ import { View, Text, SafeAreaView, StyleSheet } from "react-native";
 export default function LoginScreen() {
   return (
     <SafeAreaView>
-      <Text>LoginScreen</Text>
+      <Text style={{ ...styles.headline }}>LoginScreen</Text>
     </SafeAreaView>
   );
 }
@@ -12,5 +12,16 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  headline: {
+    fontFamily: "Inter_Bold",
+    margin: "auto",
+    textAlign: "center",
+    marginTop: 20,
+    paddingTop: 50,
+    color: "#000000",
+    fontSize: 25,
+    lineHeight: 30,
+    letterSpacing: -0.288759,
   },
 });

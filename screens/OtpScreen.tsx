@@ -1,5 +1,12 @@
 import React, { useRef, useState } from "react";
-import { Text, SafeAreaView, StyleSheet, View, TextInput } from "react-native";
+import {
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  View,
+  TextInput,
+  ActivityIndicator,
+} from "react-native";
 import { COLORS } from "../constants/theme";
 
 interface otpProps {
@@ -21,6 +28,15 @@ export default function OtpScreen({ navigation }: any) {
     third: "",
     fourth: "",
   });
+
+  if (
+    otp.first !== "" &&
+    otp.second !== "" &&
+    otp.third !== "" &&
+    otp.fourth !== ""
+  ) {
+    navigation.navigate("LoginScreen");
+  }
 
   return (
     <SafeAreaView style={{ ...styles.container }}>
