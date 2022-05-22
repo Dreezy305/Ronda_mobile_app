@@ -1661,6 +1661,11 @@
     sudo-prompt "^9.0.0"
     wcwidth "^1.0.1"
 
+"@react-native-community/masked-view@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.11.tgz#2f4c6e10bee0786abff4604e39a37ded6f3980ce"
+  integrity sha512-rQfMIGSR/1r/SyN87+VD8xHHzDYeHaJq6elOSCAD+0iLagXkSI2pfA0LmSXP21uw5i3em7GkkRjfJ8wpqWXZNw==
+
 "@react-native/assets@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@react-native/assets/-/assets-1.0.0.tgz#c6f9bf63d274bafc8e970628de24986b30a55c8e"
@@ -2733,9 +2738,9 @@ copy-descriptor@^0.1.0:
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
 
 core-js-compat@^3.21.0, core-js-compat@^3.22.1:
-  version "3.22.5"
-  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.22.5.tgz#7fffa1d20cb18405bd22756ca1353c6f1a0e8614"
-  integrity sha512-rEF75n3QtInrYICvJjrAgV03HwKiYvtKHdPtaba1KucG+cNZ4NJnH9isqt979e67KZlhpbCOTwnsvnIr+CVeOg==
+  version "3.22.6"
+  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.22.6.tgz#2e7c7a703238c168883dbf55c24bbb67503cddcb"
+  integrity sha512-dQ/SxlHcuiywaPIoSUCU6Fx+Mk/H5TXENqd/ZJcK85ta0ZcQkbzHwblxPeL0hF5o+NsT2uK3q9ZOG5TboiVuWw==
   dependencies:
     browserslist "^4.20.3"
     semver "7.0.0"
@@ -5624,7 +5629,7 @@ react-native-onboarding-swiper@^1.2.0:
   dependencies:
     tinycolor2 "^1.4.1"
 
-react-native-reanimated@~2.8.0:
+react-native-reanimated@^2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-2.8.0.tgz#93c06ca84d91fb3865110b0857c49a24e316130e"
   integrity sha512-kJvf/UWLBMaGCs9X66MKq5zdFMgwx8D0nHnolbHR7s8ZnbLdb7TlQ/yuzIXqn/9wABfnwtNRI3CyaP1aHWMmZg==
