@@ -28,6 +28,7 @@ export const COLORS = {
   secondary: "#D9C2DD",
   tertiary: "#455A64",
   white: "#fff",
+  background: "#D9E3E6",
 };
 
 export const FONTS = {

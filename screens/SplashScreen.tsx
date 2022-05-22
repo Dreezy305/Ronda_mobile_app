@@ -18,7 +18,7 @@ function SplashScreen({ navigation }: any) {
   useEffect(() => {
     setInterval(switchImage, 4000);
     setTimeout(() => {
-      navigation.navigate("OnBoardong");
+      navigation.navigate("OnBoardingScreen");
     }, 5000);
     clearInterval();
   }, [switchImage]);
@@ -62,7 +62,7 @@ export default SplashScreen;
 const styles: any = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.background,
     alignItems: "center",
     justifyContent: "center",
   },
