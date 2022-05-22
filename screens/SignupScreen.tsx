@@ -75,8 +75,18 @@ export default function SignupScreen({ navigation }: any) {
     }
   };
 
-  const phoneRegExp =
-    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+  const validatePhone = (ph: string) => {
+    const phoneRegExp =
+      /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
+    if (!phoneRegExp.test(ph)) {
+      // console.log(!PasswordRegexp.test(p));
+      setLoading(false);
+      return setPhoneError(true);
+    } else {
+      return setPhoneError(false);
+    }
+  };
 
   const handleSignUp = (values: formData) => {
     setLoading(true);
