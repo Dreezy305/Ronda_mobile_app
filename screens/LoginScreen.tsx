@@ -1,10 +1,16 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, SafeAreaView, StyleSheet } from "react-native";
 
 export default function LoginScreen() {
   return (
-    <View>
+    <SafeAreaView>
       <Text>LoginScreen</Text>
-    </View>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

@@ -9,7 +9,7 @@ interface otpProps {
   fourth: string;
 }
 
-export default function OtpScreen() {
+export default function OtpScreen({ navigation }: any) {
   const firstInput: any = useRef();
   const secondInput: any = useRef();
   const thirdInput: any = useRef();
