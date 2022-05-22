@@ -1,9 +1,8 @@
 import React from "react";
-import { Image, StyleSheet, View, Text } from "react-native";
+import { Image, StyleSheet, View, Text, Button } from "react-native";
 import Onboarding from "react-native-onboarding-swiper";
 import { amico, rafiki, cuate } from "../constants/intro";
 import { COLORS } from "../constants/theme";
-import { Button } from "react-native-paper";
 
 function OnBoardingScreen({ navigation }: any) {
   // skip button component
@@ -11,14 +10,12 @@ function OnBoardingScreen({ navigation }: any) {
     return (
       <>
         <Button
-          mode="text"
+          // mode="text"
           // onPress={() => navigation.navigate("SignupScreen")}
-          labelStyle={{ ...styles.buttonLabelStyle }}
+          // labelStyle={{ ...styles.buttonLabelStyle }}
           {...props}
         >
-          <>
-            <Text>Skip</Text>
-          </>
+          <Text>Skip</Text>
         </Button>
       </>
     );
@@ -34,9 +31,7 @@ function OnBoardingScreen({ navigation }: any) {
           labelStyle={{ ...styles.buttonLabelStyle }}
           {...props}
         >
-          <>
-            <Text>Next</Text>
-          </>
+          <Text>Next</Text>
         </Button>
       </>
     );
@@ -52,9 +47,7 @@ function OnBoardingScreen({ navigation }: any) {
           labelStyle={{ ...styles.buttonLabelStyle }}
           {...props}
         >
-          <>
-            <Text>Done</Text>
-          </>
+          <Text>Done</Text>
         </Button>
       </>
     );

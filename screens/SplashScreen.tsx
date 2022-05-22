@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Image, StyleSheet, SafeAreaView } from "react-native";
+import { Image, StyleSheet, SafeAreaView, Text } from "react-native";
 import { ronda_light, ronda_purple } from "../constants/intro";
 import { COLORS } from "../constants/theme";
-import { Headline, Caption } from "react-native-paper";
+// import { Headline, Caption } from "react-native-paper";
 
 function SplashScreen({ navigation }: any) {
   const [currentImage, setCurrentImage] = useState<number>(0);
@@ -18,7 +18,7 @@ function SplashScreen({ navigation }: any) {
   useEffect(() => {
     setInterval(switchImage, 4000);
     setTimeout(() => {
-      navigation.navigate("OnBoardingScreen");
+      navigation.navigate("SignupScreen");
     }, 5000);
     clearInterval();
   }, []);
@@ -31,7 +31,7 @@ function SplashScreen({ navigation }: any) {
         resizeMode="contain"
       />
 
-      <Headline
+      <Text
         style={{
           fontFamily: "Inter_Bold",
           color: COLORS.primary,
@@ -41,8 +41,8 @@ function SplashScreen({ navigation }: any) {
         }}
       >
         Ronda
-      </Headline>
-      <Caption
+      </Text>
+      <Text
         style={{
           fontFamily: "Inter_Regular",
           color: COLORS.primary,
@@ -52,7 +52,7 @@ function SplashScreen({ navigation }: any) {
         }}
       >
         Banking made easy for you...
-      </Caption>
+      </Text>
     </SafeAreaView>
   );
 }
