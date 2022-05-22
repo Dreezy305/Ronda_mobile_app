@@ -18,7 +18,7 @@ function SplashScreen({ navigation }: any) {
   useEffect(() => {
     setInterval(switchImage, 4000);
     setTimeout(() => {
-      navigation.navigate("SignupScreen");
+      navigation.navigate("OnBoardingScreen");
     }, 5000);
     clearInterval();
   }, []);

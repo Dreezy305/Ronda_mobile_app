@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, View, Text, Button } from "react-native";
+import { Image, StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import Onboarding from "react-native-onboarding-swiper";
 import { amico, rafiki, cuate } from "../constants/intro";
 import { COLORS } from "../constants/theme";
@@ -8,27 +8,33 @@ function OnBoardingScreen({ navigation }: any) {
   // skip button component
   const skipButton = (props: any) => {
     return (
-      <>
-        <Button {...props} title="Skip" />
-      </>
+      <TouchableOpacity style={{ marginHorizontal: 20 }}>
+        <Text {...props} style={{ ...styles.buttonLabelStyle }}>
+          Skip
+        </Text>
+      </TouchableOpacity>
     );
   };
 
   // next button component
   const nextButton = (props: any) => {
     return (
-      <>
-        <Button title="text" {...props} />
-      </>
+      <TouchableOpacity style={{ marginHorizontal: 20 }}>
+        <Text style={{ ...styles.buttonLabelStyle }} {...props}>
+          Next
+        </Text>
+      </TouchableOpacity>
     );
   };
 
   // done button component
   const doneButton = (props: any) => {
     return (
-      <>
-        <Button title="Done" {...props} />
-      </>
+      <TouchableOpacity style={{ marginHorizontal: 20 }}>
+        <Text {...props} style={{ ...styles.buttonLabelStyle }}>
+          Done
+        </Text>
+      </TouchableOpacity>
     );
   };
 
