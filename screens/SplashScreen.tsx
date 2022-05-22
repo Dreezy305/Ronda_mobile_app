@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, SafeAreaView } from "react-native";
 import { ronda_light, ronda_purple } from "../constants/intro";
 import { COLORS } from "../constants/theme";
 import { Headline, Caption } from "react-native-paper";
@@ -21,10 +21,10 @@ function SplashScreen({ navigation }: any) {
       navigation.navigate("OnBoardingScreen");
     }, 5000);
     clearInterval();
-  }, [switchImage]);
+  }, []);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Image
         source={imgArray[currentImage]}
         resizeMethod="auto"
@@ -53,7 +53,7 @@ function SplashScreen({ navigation }: any) {
       >
         Banking made easy for you...
       </Caption>
-    </View>
+    </SafeAreaView>
   );
 }
 

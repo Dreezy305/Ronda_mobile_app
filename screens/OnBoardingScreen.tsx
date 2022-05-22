@@ -1,9 +1,9 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View, TouchableOpacity } from "react-native";
 import Onboarding from "react-native-onboarding-swiper";
 import { amico, rafiki, cuate } from "../constants/intro";
 import { COLORS } from "../constants/theme";
-import { Button } from "react-native-paper";
+import { Button, Text } from "react-native-paper";
 
 function OnBoardingScreen({ navigation }: any) {
   // skip button component
@@ -12,7 +12,7 @@ function OnBoardingScreen({ navigation }: any) {
       <>
         <Button
           mode="text"
-          onPress={() => console.log("Pressed")}
+          // onPress={() => navigation.navigate("SignupScreen")}
           labelStyle={{ ...styles.buttonLabelStyle }}
           {...props}
         >
@@ -44,7 +44,7 @@ function OnBoardingScreen({ navigation }: any) {
       <>
         <Button
           mode="text"
-          onPress={() => console.log("Pressed")}
+          // onPress={() => navigation.navigate("SignupScreen")}
           labelStyle={{ ...styles.buttonLabelStyle }}
           {...props}
         >
@@ -74,8 +74,8 @@ function OnBoardingScreen({ navigation }: any) {
   return (
     <>
       <Onboarding
-        onDone={() => navigation.replace("LoginScreen")}
-        onSkip={() => navigation.navigate("LoginScreen")}
+        onDone={() => navigation.replace("SignupScreen")}
+        onSkip={() => navigation.navigate("SignupScreen")}
         SkipButtonComponent={skipButton}
         NextButtonComponent={nextButton}
         DoneButtonComponent={doneButton}
