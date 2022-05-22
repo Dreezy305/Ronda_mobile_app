@@ -9,14 +9,7 @@ function OnBoardingScreen({ navigation }: any) {
   const skipButton = (props: any) => {
     return (
       <>
-        <Button
-          // mode="text"
-          // onPress={() => navigation.navigate("SignupScreen")}
-          // labelStyle={{ ...styles.buttonLabelStyle }}
-          {...props}
-        >
-          <Text>Skip</Text>
-        </Button>
+        <Button {...props} title="Skip" />
       </>
     );
   };
@@ -25,14 +18,7 @@ function OnBoardingScreen({ navigation }: any) {
   const nextButton = (props: any) => {
     return (
       <>
-        <Button
-          mode="text"
-          onPress={() => console.log("Pressed")}
-          labelStyle={{ ...styles.buttonLabelStyle }}
-          {...props}
-        >
-          <Text>Next</Text>
-        </Button>
+        <Button title="text" {...props} />
       </>
     );
   };
@@ -41,14 +27,7 @@ function OnBoardingScreen({ navigation }: any) {
   const doneButton = (props: any) => {
     return (
       <>
-        <Button
-          mode="text"
-          // onPress={() => navigation.navigate("SignupScreen")}
-          labelStyle={{ ...styles.buttonLabelStyle }}
-          {...props}
-        >
-          <Text>Done</Text>
-        </Button>
+        <Button title="Done" {...props} />
       </>
     );
   };

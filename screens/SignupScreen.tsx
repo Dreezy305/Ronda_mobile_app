@@ -7,6 +7,7 @@ import {
   TextInput,
   ScrollView,
   TouchableOpacity,
+  ActivityIndicator,
 } from "react-native";
 import { COLORS } from "../constants/theme";
 
@@ -18,7 +19,7 @@ interface formData {
   referralCode?: string;
 }
 
-export default function SignupScreen() {
+export default function SignupScreen({ navigation }: any) {
   const [fullName, setFullName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
@@ -74,14 +75,19 @@ export default function SignupScreen() {
     }
   };
 
+  const phoneRegExp =
+    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
   const handleSignUp = (values: formData) => {
+    setLoading(true);
+
     validateEmail(values.emailAddress);
 
     validatePassword(values.password);
 
     FullNameCheck(values.fullName);
 
-    return values;
+    return navigation.navigate("OtpScreen");
   };
 
   return (
@@ -99,7 +105,11 @@ export default function SignupScreen() {
               value={fullName}
               onChangeText={(fullName) => setFullName(fullName)}
             />
-            {fullNameError && <Text>This Field is required</Text>}
+            {/* {fullNameError && (
+              <Text style={{ ...styles.errorMessage }}>
+                This Field is required
+              </Text>
+            )} */}
           </>
         </View>
 
@@ -113,7 +123,9 @@ export default function SignupScreen() {
               value={email}
               onChangeText={(email) => setEmail(email)}
             />
-            {emailError && <Text>Email is invalid</Text>}
+            {/* {emailError && (
+              <Text style={{ ...styles.errorMessage }}>Email is invalid</Text>
+            )} */}
           </>
         </View>
 
@@ -127,7 +139,11 @@ export default function SignupScreen() {
               value={phone}
               onChangeText={(phone) => setPhone(phone)}
             />
-            {phoneError && <Text>Phone number is invalid</Text>}
+            {phoneError && (
+              <Text style={{ ...styles.errorMessage }}>
+                Phone number is invalid
+              </Text>
+            )}
           </>
         </View>
 
@@ -141,13 +157,12 @@ export default function SignupScreen() {
               value={password}
               onChangeText={(password) => setPassword(password)}
             />
-            {passError && (
-              <Text>
-                {" "}
+            {/* {passError && (
+              <Text style={{ ...styles.errorMessage }}>
                 Min 8 characters, at least 1 uppercase letter, 1 lowercase
                 letter and 1 number
               </Text>
-            )}
+            )} */}
           </>
         </View>
 
@@ -171,7 +186,11 @@ export default function SignupScreen() {
             style={styles.signUP}
             onPress={() => handleSignUp(payload)}
           >
-            <Text style={{ ...styles.cta }}>Sign Up</Text>
+            {loading ? (
+              <ActivityIndicator size="small" color="#fff" />
+            ) : (
+              <Text style={{ ...styles.cta }}>Sign Up</Text>
+            )}
           </TouchableOpacity>
 
           <View style={{ paddingBottom: 30, paddingTop: 10, marginBottom: 30 }}>
@@ -191,13 +210,14 @@ export default function SignupScreen() {
                 textAlign: "center",
                 paddingBottom: 30,
                 fontFamily: "Inter_Regular",
-                color: COLORS.primary,
               }}
             >
-              <Text style={{ fontFamily: "Inter_Regular" }}>
+              <Text
+                style={{ fontFamily: "Inter_Regular", color: COLORS.primary }}
+              >
                 Terms & Conditions
               </Text>{" "}
-              and <Text>Privacy Policy</Text>
+              and <Text style={{ color: COLORS.primary }}>Privacy Policy</Text>
             </Text>
           </View>
         </View>
@@ -256,5 +276,10 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     fontSize: 18,
     lineHeight: 22,
+  },
+  errorMessage: {
+    color: COLORS.red,
+    fontFamily: "Inter_Light",
+    fontSize: 12,
   },
 });
