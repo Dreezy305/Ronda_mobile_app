@@ -35,7 +35,7 @@ export default function OtpScreen({ navigation }: any) {
     otp.third !== "" &&
     otp.fourth !== ""
   ) {
-    navigation.navigate("LoginScreen");
+    navigation.navigate("DrawerScreen");
   }
 
   return (

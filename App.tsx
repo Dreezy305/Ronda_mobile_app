@@ -1,15 +1,16 @@
+import "react-native-gesture-handler";
 import React from "react";
 import { FONTS } from "./constants/theme";
 import { useFonts } from "expo-font";
-// import { Provider as PaperProvider } from "react-native-paper";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // SCREENS
 import SplashScreen from "./screens/SplashScreen";
 import OnBoardingScreen from "./screens/OnBoardingScreen";
-import LoginScreen from "./screens/LoginScreen";
+// import LoginScreen from "./screens/LoginScreen";
 import SignupScreen from "./screens/SignupScreen";
 import OtpScreen from "./screens/OtpScreen";
+import DrawerScreen from "./navigations/DrawerNavigation";
 
 const Stack: any = createNativeStackNavigator();
 
@@ -44,8 +45,8 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="LoginScreen"
-          component={LoginScreen}
+          name="DrawerScreen"
+          component={DrawerScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
