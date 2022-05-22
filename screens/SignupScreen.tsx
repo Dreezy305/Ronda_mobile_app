@@ -11,6 +11,8 @@ import {
 } from "react-native";
 import { COLORS } from "../constants/theme";
 
+// NOTE --> fix the error displays render
+
 interface formData {
   fullName: string;
   emailAddress: string;
@@ -80,7 +82,6 @@ export default function SignupScreen({ navigation }: any) {
       /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
     if (!phoneRegExp.test(ph)) {
-      // console.log(!PasswordRegexp.test(p));
       setLoading(false);
       return setPhoneError(true);
     } else {
@@ -149,11 +150,11 @@ export default function SignupScreen({ navigation }: any) {
               value={phone}
               onChangeText={(phone) => setPhone(phone)}
             />
-            {phoneError && (
+            {/* {phoneError && (
               <Text style={{ ...styles.errorMessage }}>
                 Phone number is invalid
               </Text>
-            )}
+            )} */}
           </>
         </View>
 

@@ -30,6 +30,7 @@ export const COLORS = {
   white: "#fff",
   background: "#D9E3E6",
   red: "#E20000",
+  bgLight: "#EEEEEE",
 };
 
 export const FONTS = {
