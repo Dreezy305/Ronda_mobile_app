@@ -1,13 +1,13 @@
 import React from "react";
-import { Image, StyleSheet, View, TouchableOpacity } from "react-native";
+import { Image, StyleSheet, View, Text } from "react-native";
 import Onboarding from "react-native-onboarding-swiper";
 import { amico, rafiki, cuate } from "../constants/intro";
 import { COLORS } from "../constants/theme";
-import { Button, Text } from "react-native-paper";
+import { Button } from "react-native-paper";
 
 function OnBoardingScreen({ navigation }: any) {
   // skip button component
-  const skipButton = ({ ...props }) => {
+  const skipButton = (props: any) => {
     return (
       <>
         <Button
@@ -16,14 +16,16 @@ function OnBoardingScreen({ navigation }: any) {
           labelStyle={{ ...styles.buttonLabelStyle }}
           {...props}
         >
-          Skip
+          <>
+            <Text>Skip</Text>
+          </>
         </Button>
       </>
     );
   };
 
   // next button component
-  const nextButton = ({ ...props }) => {
+  const nextButton = (props: any) => {
     return (
       <>
         <Button
@@ -32,14 +34,16 @@ function OnBoardingScreen({ navigation }: any) {
           labelStyle={{ ...styles.buttonLabelStyle }}
           {...props}
         >
-          Next
+          <>
+            <Text>Next</Text>
+          </>
         </Button>
       </>
     );
   };
 
   // done button component
-  const doneButton = ({ ...props }) => {
+  const doneButton = (props: any) => {
     return (
       <>
         <Button
@@ -48,7 +52,9 @@ function OnBoardingScreen({ navigation }: any) {
           labelStyle={{ ...styles.buttonLabelStyle }}
           {...props}
         >
-          Done
+          <>
+            <Text>Done</Text>
+          </>
         </Button>
       </>
     );
@@ -80,6 +86,8 @@ function OnBoardingScreen({ navigation }: any) {
         NextButtonComponent={nextButton}
         DoneButtonComponent={doneButton}
         DotComponent={dotComponent}
+        titleStyles={{ ...styles.title }}
+        subTitleStyles={{ ...styles.subtitle }}
         pages={[
           {
             backgroundColor: COLORS.background,
@@ -96,20 +104,22 @@ function OnBoardingScreen({ navigation }: any) {
           },
           {
             backgroundColor: COLORS.background,
-            image: <Image source={amico} />,
+            image: (
+              <Image source={amico} resizeMethod="scale" resizeMode="contain" />
+            ),
             title: "Save as you like",
             subtitle: "Earn between 11-13% P.A when you save",
           },
           {
             backgroundColor: COLORS.background,
-            image: <Image source={cuate} />,
+            image: (
+              <Image source={cuate} resizeMethod="scale" resizeMode="contain" />
+            ),
             title: "Get a virtual card in no time",
             subtitle:
               "Request for a virtual card from the comfort of your home",
           },
         ]}
-        titleStyles={{ ...styles.title }}
-        subTitleStyles={{ ...styles.subtitle }}
       />
     </>
   );
@@ -117,7 +127,7 @@ function OnBoardingScreen({ navigation }: any) {
 
 export default OnBoardingScreen;
 
-const styles: any = StyleSheet.create({
+const styles = StyleSheet.create({
   title: {
     fontFamily: "Inter_Bold",
     color: COLORS.primary,
