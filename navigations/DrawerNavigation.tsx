@@ -11,6 +11,8 @@ import TabScreen from "./TabNavigation";
 import TransferScreen from "../screens/TransferScreen";
 import BillsAndPaymentScreen from "../screens/BillsAndPaymentScreen";
 import ReferalScreen from "../screens/ReferalScreen";
+import AtmLocatorScreen from "../screens/AtmLocatorScreen";
+import SaveMoneyScreen from "../screens/SaveMoneyScreen";
 
 const Drawer: any = createDrawerNavigator();
 
@@ -21,6 +23,52 @@ function CustomDrawerContent(props: any) {
         <DrawerItemList {...props} />
         <DrawerItem label={""} onPress={() => {}} />
       </DrawerContentScrollView>
+      <View
+        style={{
+          position: "absolute",
+          right: 0,
+          left: 0,
+          bottom: "50%",
+          // backgroundColor: "#f6f6f6",
+          padding: 20,
+        }}
+      >
+        <TouchableOpacity
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            paddingVertical: 20,
+          }}
+        >
+          <View>
+            <Text>Others</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+      <View
+        style={{
+          position: "absolute",
+          right: 0,
+          left: 0,
+          bottom: "44%",
+          // backgroundColor: "#f6f6f6",
+          padding: 20,
+        }}
+      >
+        <TouchableOpacity
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            paddingVertical: 20,
+          }}
+        >
+          <View>
+            <Text>Sign Out</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -56,6 +104,16 @@ export default function DrawerScreen() {
         name="ReferalScreen"
         component={ReferalScreen}
         options={{ headerShown: false, drawerLabel: "Referral" }}
+      />
+      <Drawer.Screen
+        name="AtmLocatorScreen"
+        component={AtmLocatorScreen}
+        options={{ headerShown: false, drawerLabel: "ATM Locator" }}
+      />
+      <Drawer.Screen
+        name="SaveMoneyScreen"
+        component={SaveMoneyScreen}
+        options={{ headerShown: false, drawerLabel: "Save Money" }}
       />
     </Drawer.Navigator>
   );
