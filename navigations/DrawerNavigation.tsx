@@ -6,7 +6,8 @@ import {
   DrawerItem,
 } from "@react-navigation/drawer";
 import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
-import { home, equivalence } from "../constants/icon";
+import { EvilIcons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { home, equivalence, copy_copy, referral } from "../constants/icon";
 // Drawer Screens
 import TabScreen from "./TabNavigation";
 import TransferScreen from "../screens/TransferScreen";
@@ -120,8 +121,6 @@ export default function DrawerScreen() {
               <View>
                 <Image
                   source={equivalence}
-                  resizeMethod=""
-                  resizeMode=""
                   style={{ tintColor: COLORS.primary, height: 16, width: 18 }}
                   {...props}
                 />
@@ -137,6 +136,19 @@ export default function DrawerScreen() {
         options={{
           headerShown: false,
           drawerLabel: "Bills & Payment",
+          drawerIcon: (props: any) => {
+            return (
+              <View>
+                <Image
+                  source={copy_copy}
+                  resizeMethod="scale"
+                  resizeMode="contain"
+                  style={{ tintColor: COLORS.primary }}
+                  {...props}
+                />
+              </View>
+            );
+          },
           drawerLabelStyle: { ...styles.drawerLabelStyle },
         }}
       />
@@ -146,6 +158,19 @@ export default function DrawerScreen() {
         options={{
           headerShown: false,
           drawerLabel: "Referral",
+          drawerIcon: (props: any) => {
+            return (
+              <View>
+                <Image
+                  source={referral}
+                  resizeMethod="scale"
+                  resizeMode="contain"
+                  style={{ tintColor: COLORS.primary }}
+                  {...props}
+                />
+              </View>
+            );
+          },
           drawerLabelStyle: { ...styles.drawerLabelStyle },
         }}
       />
@@ -155,6 +180,18 @@ export default function DrawerScreen() {
         options={{
           headerShown: false,
           drawerLabel: "ATM Locator",
+          drawerIcon: (props: any) => {
+            return (
+              <View>
+                <EvilIcons
+                  name="location"
+                  size={25}
+                  color={COLORS.primary}
+                  style={{ width: 20 }}
+                />
+              </View>
+            );
+          },
           drawerLabelStyle: { ...styles.drawerLabelStyle },
         }}
       />
@@ -164,6 +201,18 @@ export default function DrawerScreen() {
         options={{
           headerShown: false,
           drawerLabel: "Save Money",
+          drawerIcon: (props: any) => {
+            return (
+              <View>
+                <MaterialCommunityIcons
+                  name="piggy-bank-outline"
+                  size={24}
+                  color={COLORS.primary}
+                  style={{ width: 20 }}
+                />
+              </View>
+            );
+          },
           drawerLabelStyle: { ...styles.drawerLabelStyle },
         }}
       />
