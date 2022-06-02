@@ -31,6 +31,7 @@ export const COLORS = {
   background: "#D9E3E6",
   red: "#E20000",
   bgLight: "#EEEEEE",
+  activeBg: "#BA68C8",
 };
 
 export const FONTS = {

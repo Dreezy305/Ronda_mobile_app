@@ -6,7 +6,11 @@ import {
   DrawerItem,
 } from "@react-navigation/drawer";
 import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
-import { EvilIcons, MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  EvilIcons,
+  MaterialCommunityIcons,
+  FontAwesome,
+} from "@expo/vector-icons";
 import { home, equivalence, copy_copy, referral } from "../constants/icon";
 // Drawer Screens
 import TabScreen from "./TabNavigation";
@@ -67,9 +71,14 @@ function CustomDrawerContent(props: any) {
             paddingVertical: 20,
           }}
         >
-          <View>
-            <Text style={{ ...styles.drawerLabelStyle }}>Sign Out</Text>
-          </View>
+          <Text style={{ ...styles.drawerLabelStyle }}>Sign Out</Text>
+
+          <FontAwesome
+            name="sign-out"
+            size={25}
+            color={COLORS.primary}
+            style={{ width: 20 }}
+          />
         </TouchableOpacity>
       </View>
     </View>
@@ -108,6 +117,7 @@ export default function DrawerScreen() {
             );
           },
           drawerLabelStyle: { ...styles.drawerLabelStyle },
+          drawerActiveBackgroundColor: { ...styles.drawerActiveColor },
         }}
       />
       <Drawer.Screen
@@ -227,5 +237,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     lineHeight: 20,
   },
-  drawerActiveColor: {},
+  drawerActiveColor: {
+    backgroundColor: COLORS.activeBg,
+  },
 });
