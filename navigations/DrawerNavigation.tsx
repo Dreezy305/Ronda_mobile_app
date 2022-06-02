@@ -5,7 +5,8 @@ import {
   DrawerItemList,
   DrawerItem,
 } from "@react-navigation/drawer";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
+import { home, equivalence } from "../constants/icon";
 // Drawer Screens
 import TabScreen from "./TabNavigation";
 import TransferScreen from "../screens/TransferScreen";
@@ -13,6 +14,7 @@ import BillsAndPaymentScreen from "../screens/BillsAndPaymentScreen";
 import ReferalScreen from "../screens/ReferalScreen";
 import AtmLocatorScreen from "../screens/AtmLocatorScreen";
 import SaveMoneyScreen from "../screens/SaveMoneyScreen";
+import { COLORS } from "../constants/theme";
 
 const Drawer: any = createDrawerNavigator();
 
@@ -42,7 +44,7 @@ function CustomDrawerContent(props: any) {
           }}
         >
           <View>
-            <Text>Others</Text>
+            <Text style={{ ...styles.drawerLabelStyle }}>Others</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -65,7 +67,7 @@ function CustomDrawerContent(props: any) {
           }}
         >
           <View>
-            <Text>Sign Out</Text>
+            <Text style={{ ...styles.drawerLabelStyle }}>Sign Out</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -88,33 +90,93 @@ export default function DrawerScreen() {
       <Drawer.Screen
         name="TabScreen"
         component={TabScreen}
-        options={{ headerShown: false, drawerLabel: "Home" }}
+        options={{
+          headerShown: false,
+          drawerLabel: "Home",
+          drawerIcon: (props: any) => {
+            return (
+              <View>
+                <Image
+                  source={home}
+                  resizeMethod="scale"
+                  resizeMode="contain"
+                  style={{ tintColor: COLORS.primary }}
+                  {...props}
+                />
+              </View>
+            );
+          },
+          drawerLabelStyle: { ...styles.drawerLabelStyle },
+        }}
       />
       <Drawer.Screen
         name="TransferScreen"
         component={TransferScreen}
-        options={{ headerShown: false, drawerLabel: "Transfer" }}
+        options={{
+          headerShown: false,
+          drawerLabel: "Transfer",
+          drawerIcon: (props: any) => {
+            return (
+              <View>
+                <Image
+                  source={equivalence}
+                  resizeMethod=""
+                  resizeMode=""
+                  style={{ tintColor: COLORS.primary, height: 16, width: 18 }}
+                  {...props}
+                />
+              </View>
+            );
+          },
+          drawerLabelStyle: { ...styles.drawerLabelStyle },
+        }}
       />
       <Drawer.Screen
         name="BillsAndPaymentScreen"
         component={BillsAndPaymentScreen}
-        options={{ headerShown: false, drawerLabel: "Bills & Payment" }}
+        options={{
+          headerShown: false,
+          drawerLabel: "Bills & Payment",
+          drawerLabelStyle: { ...styles.drawerLabelStyle },
+        }}
       />
       <Drawer.Screen
         name="ReferalScreen"
         component={ReferalScreen}
-        options={{ headerShown: false, drawerLabel: "Referral" }}
+        options={{
+          headerShown: false,
+          drawerLabel: "Referral",
+          drawerLabelStyle: { ...styles.drawerLabelStyle },
+        }}
       />
       <Drawer.Screen
         name="AtmLocatorScreen"
         component={AtmLocatorScreen}
-        options={{ headerShown: false, drawerLabel: "ATM Locator" }}
+        options={{
+          headerShown: false,
+          drawerLabel: "ATM Locator",
+          drawerLabelStyle: { ...styles.drawerLabelStyle },
+        }}
       />
       <Drawer.Screen
         name="SaveMoneyScreen"
         component={SaveMoneyScreen}
-        options={{ headerShown: false, drawerLabel: "Save Money" }}
+        options={{
+          headerShown: false,
+          drawerLabel: "Save Money",
+          drawerLabelStyle: { ...styles.drawerLabelStyle },
+        }}
       />
     </Drawer.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  drawerLabelStyle: {
+    color: COLORS.primary,
+    fontFamily: "Inter_Medium",
+    fontSize: 17,
+    lineHeight: 20,
+  },
+  drawerActiveColor: {},
+});
