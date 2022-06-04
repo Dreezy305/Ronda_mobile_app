@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -12,6 +12,7 @@ import {
   FontAwesome,
 } from "@expo/vector-icons";
 import { home, equivalence, copy_copy, referral } from "../constants/icon";
+import { List } from "react-native-paper";
 // Drawer Screens
 import TabScreen from "./TabNavigation";
 import TransferScreen from "../screens/TransferScreen";
@@ -24,62 +25,68 @@ import { COLORS } from "../constants/theme";
 const Drawer: any = createDrawerNavigator();
 
 function CustomDrawerContent(props: any) {
+  const [expanded, setExpanded] = React.useState(true);
+
+  const handlePress = () => setExpanded(!expanded);
+
   return (
     <View style={{ flex: 1, marginTop: 0 }}>
       <DrawerContentScrollView {...props}>
         <DrawerItemList {...props} />
         <DrawerItem label={""} onPress={() => {}} />
       </DrawerContentScrollView>
-      <View
-        style={{
-          position: "absolute",
-          right: 0,
-          left: 0,
-          bottom: "50%",
-          // backgroundColor: "#f6f6f6",
-          padding: 20,
-        }}
-      >
-        <TouchableOpacity
+      <View style={{ display: "flex", flexDirection: "column" }}>
+        <View
           style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            paddingVertical: 20,
+            // position: "absolute",
+            right: 0,
+            left: 0,
+            // bottom: "0%",
+            // backgroundColor: "#f6f6f6",
+            padding: 20,
           }}
         >
-          <View>
-            <Text style={{ ...styles.drawerLabelStyle }}>Others</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-      <View
-        style={{
-          position: "absolute",
-          right: 0,
-          left: 0,
-          bottom: "44%",
-          // backgroundColor: "#f6f6f6",
-          padding: 20,
-        }}
-      >
-        <TouchableOpacity
+          <TouchableOpacity
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              paddingVertical: 20,
+            }}
+          >
+            <View>
+              <Text style={{ ...styles.drawerLabelStyle }}>Others</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View
           style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            paddingVertical: 20,
+            // position: "absolute",
+            right: 0,
+            left: 0,
+            // bottom: "0%",
+            // backgroundColor: "#f6f6f6",
+            padding: 20,
           }}
         >
-          <Text style={{ ...styles.drawerLabelStyle }}>Sign Out</Text>
+          <TouchableOpacity
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              paddingVertical: 20,
+            }}
+          >
+            <Text style={{ ...styles.drawerLabelStyle }}>Sign Out</Text>
 
-          <FontAwesome
-            name="sign-out"
-            size={25}
-            color={COLORS.primary}
-            style={{ width: 20 }}
-          />
-        </TouchableOpacity>
+            <FontAwesome
+              name="sign-out"
+              size={25}
+              color={COLORS.primary}
+              style={{ width: 20 }}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
