@@ -10,6 +10,7 @@ import {
   EvilIcons,
   MaterialCommunityIcons,
   FontAwesome,
+  AntDesign,
 } from "@expo/vector-icons";
 import { home, equivalence, copy_copy, referral } from "../constants/icon";
 import { List } from "react-native-paper";
@@ -21,6 +22,8 @@ import ReferalScreen from "../screens/ReferalScreen";
 import AtmLocatorScreen from "../screens/AtmLocatorScreen";
 import SaveMoneyScreen from "../screens/SaveMoneyScreen";
 import { COLORS } from "../constants/theme";
+import { cross } from "../constants/icon";
+import { ellipse } from "../constants/images";
 
 const Drawer: any = createDrawerNavigator();
 
@@ -32,7 +35,18 @@ function CustomDrawerContent(props: any) {
   return (
     <View style={{ flex: 1, marginTop: 0 }}>
       <DrawerContentScrollView {...props}>
-        <View></View>
+        <View style={{ ...styles.topView }}>
+          <>
+            <AntDesign
+              name="close"
+              size={24}
+              color={COLORS.primary}
+              style={{ ...styles.closeIcon }}
+              onPress={() => props.navigation.closeDrawer()}
+            />
+          </>
+          <View></View>
+        </View>
         <DrawerItemList {...props} />
         <DrawerItem label={""} onPress={() => {}} />
       </DrawerContentScrollView>
@@ -247,5 +261,14 @@ const styles = StyleSheet.create({
   },
   drawerActiveColor: {
     backgroundColor: COLORS.activeBg,
+  },
+  topView: {
+    display: "flex",
+    flexDirection: "column",
+    marginVertical: 20,
+    marginHorizontal: 20,
+  },
+  closeIcon: {
+    alignSelf: "flex-end",
   },
 });
