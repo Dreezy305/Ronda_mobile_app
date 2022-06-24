@@ -32,6 +32,7 @@ function CustomDrawerContent(props: any) {
   return (
     <View style={{ flex: 1, marginTop: 0 }}>
       <DrawerContentScrollView {...props}>
+        <View></View>
         <DrawerItemList {...props} />
         <DrawerItem label={""} onPress={() => {}} />
       </DrawerContentScrollView>

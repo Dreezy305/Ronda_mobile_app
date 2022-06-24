@@ -51,6 +51,7 @@ const trash = require("../assets/icons/trash.png");
 const upload = require("../assets/icons/upload.png");
 const user = require("../assets/icons/user.png");
 const wallet = require("../assets/icons/wallet.png");
+const cross = require("../assets/icons/cross.png");
 
 export {
   arrow_down,
@@ -58,6 +59,7 @@ export {
   bell,
   calendar,
   cancel,
+  cross,
   card,
   chevron_left,
   chevron_up,
